@@ -23,11 +23,11 @@ seats_value = {
 
 
 
-try:
-    import Adafruit_MPR121.MPR121 as MPR121
-except Exception as e:
-    print("ERROR: MPR121  package is not installed on this computer")
-    raise e
+# try:
+#     import Adafruit_MPR121.MPR121 as MPR121
+# except Exception as e:
+#     print("ERROR: MPR121  package is not installed on this computer")
+#     raise e
 
 # gpio package import
 try:
