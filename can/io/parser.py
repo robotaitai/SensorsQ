@@ -91,14 +91,18 @@ class Parser(BaseIOHandler, Listener):
             self.CAN_dic.update({ arbitration_id_string : values })
             self.CAN_dic[arbitration_id_string][3] = 0
             print("adding: ", arbitration_id_string)
+            #TODO raise fact
+
             for i in self.CAN_dic.keys():
                 print(i," : ", self.CAN_dic[i])
         else:
+            # If already appeared before, don't need to update
             if self.CAN_dic[arbitration_id_string][1] == data_string:
                 pass
                 # print (self.CAN_dic[arbitration_id_string][1], data_string)
                 # print("same")
             else:
+                # If the status of a relevant
                 # update time stamp
                 self.CAN_dic[arbitration_id_string][3] = math.fsum([timestamp, -self.CAN_dic[arbitration_id_string][3]])
                 print("- - - - - - - - - - - - - - - - - - - - - - -")
@@ -110,6 +114,9 @@ class Parser(BaseIOHandler, Listener):
                 # print(self.CAN_dic[arbitration_id_string][1], data_string)
                 for i in self.CAN_dic.keys():
                   print(i," : ", self.CAN_dic[i])
+
+            if arbitration_id_string == "0619"
+                print("0619!")
 
 
 
