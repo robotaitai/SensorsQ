@@ -117,7 +117,7 @@ class Parser(BaseIOHandler, Listener):
 
             if arbitration_id_string == "0610":
                 list620 = data_string.split()
-                bin3list620 = int(bin(list620),2)
+                bin3list620 = int(bin(list620[3]),2)
                 for b in range(8):
                     if bin3list620>>i & 1 == 1:
                         print("i'm here! this is i: ",i)
