@@ -120,7 +120,7 @@ class Parser(BaseIOHandler, Listener):
                 bin3list620 = int(bin(int(list620[3])),2)
                 for b in range(8):
                     if bin3list620>>b & 1 == 1:
-                        print("i'm here! this is i: ",b)
+                        print("i'm here! this is b: ",b)
 
 
                 # print("1b: ",list620[1],", 1a: ",hex(int(list620[1],16)-0x10))
