@@ -27,6 +27,12 @@ class Parser(BaseIOHandler, Listener):
         mode = "a" if append else "w"
         self.CAN_dic = {}
         super().__init__(file, mode=mode)
+        self.list620_5 = ["None", "None", "BLDoor", "BRDoor", "FRDoor", "FLDoor", "None", "None"]
+        self.list620_7 = ["None", "None", "None", "None", "None", "HandBreak", "None", "frontSB"]
+        self.list2C1_7 #Throttle in 7H
+        self.list3BB_5 #Breaks in 7H
+
+
 
 
 
@@ -116,11 +122,19 @@ class Parser(BaseIOHandler, Listener):
                   print(i," : ", self.CAN_dic[i])
 
             if arbitration_id_string == "0610":
+
                 list620 = data_string.split()
                 bin3list620 = int(bin(int(list620[3])),2)
                 for b in range(8):
                     if bin3list620>>b & 1 == 1:
                         print("i'm here! this is b: ",b)
+            if arbitration_id_string == "0620":
+                list620 = data_string.split()
+                binlist620_5 = int(bin(int(list620[5])), 2)
+                for b in range(8):
+                    if binlist620_5>>b & 1 == 1:
+                        print("Change in: ", self.list620_5[b])
+
 
 
                 # print("1b: ",list620[1],", 1a: ",hex(int(list620[1],16)-0x10))
