@@ -117,7 +117,7 @@ class Parser(BaseIOHandler, Listener):
 
             if arbitration_id_string == "0610":
                 list620 = data_string.split()
-                print("1b: ",list620[1],", 1a: ",int(list620[1]))-0x10)
+                print("1b: ",list620[1],", 1a: ",int(list620[1])-0x10)
                 print("3b: ",list620[3],", 3a: ",int(list620[3])-0x10)
                 print("5b: ",list620[5],", 5a: ",int(list620[5])-0x10)
 
