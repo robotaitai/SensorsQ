@@ -29,8 +29,8 @@ class Parser(BaseIOHandler, Listener):
         super().__init__(file, mode=mode)
         self.list620_5 = ["None", "None", "BLDoor", "BRDoor", "FRDoor", "FLDoor", "None", "None"]
         self.list620_7 = ["None", "None", "None", "None", "None", "HandBreak", "None", "frontSB"]
-        self.list2C1_7 #Throttle in 7H
-        self.list3BB_5 #Breaks in 7H
+        self.list2C1_7 =0#Throttle in 7H
+        self.list3BB_5 =0#Breaks in 7H
 
 
 
