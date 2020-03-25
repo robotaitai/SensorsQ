@@ -116,7 +116,7 @@ class Parser(BaseIOHandler, Listener):
                   print(i," : ", self.CAN_dic[i])
 
             if arbitration_id_string == "0610":
-                list620 = self.CAN_dic["0610"].split()
+                list620 = self.data_string.split()
                 print("1: ",list620[1])
                 print("3: ",list620[3])
                 print("5: ",list620[5])
