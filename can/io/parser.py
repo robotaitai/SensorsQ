@@ -117,11 +117,17 @@ class Parser(BaseIOHandler, Listener):
 
             if arbitration_id_string == "0610":
                 list620 = data_string.split()
+                bin3list620 = int(bin(list620),2)
+                for b in range(8):
+                    if bin3list620>>i & 1 == 1:
+                        print("i'm here! this is i: ",i)
+
+
                 # print("1b: ",list620[1],", 1a: ",hex(int(list620[1],16)-0x10))
                 # print("3b: ",list620[3],", 3a: ",hex(int(list620[3],16)-0x10))
                 # print("5b: ",list620[5],", 5a: ",hex(int(list620[5],16)-0x10))
                 print(int(list620[0],2))
-                print(int(list620[5],2))
+                print(int(list620[5]))
 
 
 
