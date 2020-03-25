@@ -126,8 +126,8 @@ class Parser(BaseIOHandler, Listener):
                 # print("1b: ",list620[1],", 1a: ",hex(int(list620[1],16)-0x10))
                 # print("3b: ",list620[3],", 3a: ",hex(int(list620[3],16)-0x10))
                 # print("5b: ",list620[5],", 5a: ",hex(int(list620[5],16)-0x10))
-                print(int(list620[0],2))
-                print(int(list620[5]))
+                # print(int(list620[0],2))
+                # print(int(list620[5]))
 
 
 
