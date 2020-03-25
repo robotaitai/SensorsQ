@@ -119,8 +119,8 @@ class Parser(BaseIOHandler, Listener):
                 list620 = data_string.split()
                 bin3list620 = int(bin(int(list620[3])),2)
                 for b in range(8):
-                    if bin3list620>>i & 1 == 1:
-                        print("i'm here! this is i: ",i)
+                    if bin3list620>>b & 1 == 1:
+                        print("i'm here! this is i: ",b)
 
 
                 # print("1b: ",list620[1],", 1a: ",hex(int(list620[1],16)-0x10))
