@@ -121,13 +121,13 @@ class Parser(BaseIOHandler, Listener):
                 for i in self.CAN_dic.keys():
                   print(i," : ", self.CAN_dic[i])
 
-            if arbitration_id_string == "0610":
-
-                list620 = data_string.split()
-                bin3list620 = int(bin(int(list620[3])),2)
-                for b in range(8):
-                    if bin3list620>>b & list620[b] == 1:
-                        print("i'm here! this is b: ")
+            # if arbitration_id_string == "0610":
+            #
+            #     list620 = data_string.split()
+            #     bin3list620 = int(bin(int(list620[3])),2)
+            #     for b in range(8):
+            #         if bin3list620>>b & list620[b] == 1:
+            #             print("i'm here! this is b: ")
             if arbitration_id_string == "0620":
                 list620 = data_string.split()
                 binlist620_5 = int(bin(int(list620[5])), 2)
