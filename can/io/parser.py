@@ -27,7 +27,7 @@ class Parser(BaseIOHandler, Listener):
         mode = "a" if append else "w"
         self.CAN_dic = {}
         super().__init__(file, mode=mode)
-        self.list620_5 = {"None":0, "None":0, "BLDoor":0, "BRDoor":0, "FRDoor":0, "FLDoor":0, "None":0, "None":0}
+        self.list620_5 = {"None":"0", "None":"0", "BLDoor":"0", "BRDoor":"0", "FRDoor":"0", "FLDoor":"0", "None":"0", "None":"0"}
         self.list620_7 = {"None":0, "None":0, "None":0, "None":0, "None":0, "HandBreak":0, "None":0, "frontSB":0}
         self.list2C1_7 =0 #Throttle in 7H
         self.list3BB_5 =0 #Breaks in 7H
