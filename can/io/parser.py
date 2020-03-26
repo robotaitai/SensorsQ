@@ -134,10 +134,10 @@ class Parser(BaseIOHandler, Listener):
             print("620! ", data_string)
             list620 = data_string.split()
             binlist620_5 = int(bin(int(list620[5])), 2)
-            print(binlist620_5)
+            print(bin(binlist620_5))
             for b in range(8):
                 andResult = binlist620_5>>b & 1
-                print("b = ",bin(b)," bin is: ",binlist620_5>>b, " and in dict we have: ",self.sensorsDict[self.list620_5[b]]," and method: ",andResult)
+                print("b = ",b," bin is: ",binlist620_5>>b, " and in dict we have: ",self.sensorsDict[self.list620_5[b]]," and method: ",andResult)
 
                 if andResult:
                     # print("Change in: ", self.list620_5[b], "from: ", self.sensorsDict[self.list620_5[b]], " to: ", binlist620_5>>b )
