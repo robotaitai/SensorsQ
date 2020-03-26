@@ -130,13 +130,14 @@ class Parser(BaseIOHandler, Listener):
             #     for b in range(8):
             #         if bin3list620>>b & list620[b] == 1:
             #             print("i'm here! this is b: ")
-            if arbitration_id_string == "0620":
-                list620 = data_string.split()
-                binlist620_5 = int(bin(int(list620[5])), 2)
-                for b in range(8):
-                    if binlist620_5>>b & self.sensorsDict[self.list620_5[b]] == 0:
-                        # print("Change in: ", self.list620_5[b], "from: ", self.sensorsDict[self.list620_5[b]], " to: ", binlist620_5>>b )
-                        self.sensorsDict[self.list620_5[b]] = binlist620_5 >> b
+        if arbitration_id_string == "0620":
+            print("620! ", data_string)
+            list620 = data_string.split()
+            binlist620_5 = int(bin(int(list620[5])), 2)
+            for b in range(8):
+                if binlist620_5>>b & self.sensorsDict[self.list620_5[b]] == 0:
+                    # print("Change in: ", self.list620_5[b], "from: ", self.sensorsDict[self.list620_5[b]], " to: ", binlist620_5>>b )
+                    self.sensorsDict[self.list620_5[b]] = binlist620_5 >> b
 
 
                 # print("1b: ",list620[1],", 1a: ",hex(int(list620[1],16)-0x10))
