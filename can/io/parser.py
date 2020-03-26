@@ -134,6 +134,7 @@ class Parser(BaseIOHandler, Listener):
             print("620! ", data_string)
             list620 = data_string.split()
             binlist620_5 = int(bin(int(list620[5])), 2)
+            print(binlist620_5)
             for b in range(8):
                 print("b = ",b," bin is: ",binlist620_5>>b, " and in dict we have: ",self.sensorsDict[self.list620_5[b]]," and method: ",binlist620_5>>b & self.sensorsDict[self.list620_5[b]])
                 if binlist620_5>>b & self.sensorsDict[self.list620_5[b]] == 0:
