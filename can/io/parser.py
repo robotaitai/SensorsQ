@@ -27,8 +27,10 @@ class Parser(BaseIOHandler, Listener):
         mode = "a" if append else "w"
         self.CAN_dic = {}
         super().__init__(file, mode=mode)
-        self.list620_5 = {"None":"0", "None":"0", "BLDoor":"0", "BRDoor":"0", "FRDoor":"0", "FLDoor":"0", "None":"0", "None":"0"}
-        self.list620_7 = {"None":0, "None":0, "None":0, "None":0, "None":0, "HandBreak":0, "None":0, "frontSB":0}
+        self.list620_5 = ["None", "None", "BLDoor", "BRDoor", "FRDoor", "FLDoor", "None", "None"]
+        self.list620_7 = ["None", "None", "None", "None", "None", "HandBreak", "None", "frontSB"]
+
+        self.sensorsDict = {"BLDoor":"0", "BRDoor":"0", "FRDoor":"0", "FLDoor":"0",  "frontSB":0, "HandBreak":0}
         self.list2C1_7 =0 #Throttle in 7H
         self.list3BB_5 =0 #Breaks in 7H
 
@@ -132,10 +134,9 @@ class Parser(BaseIOHandler, Listener):
                 list620 = data_string.split()
                 binlist620_5 = int(bin(int(list620[5])), 2)
                 for b in range(8):
-                    if binlist620_5>>b & list620[b] == 0:
-                        list620[b] = binlist620_5>>b
-                        print("Change in: ", self.list620_5[b], "from: ", list620[b], " to: ", binlist620_5>>b )
-                        list620[b] = binlist620_5 >> b
+                    if binlist620_5>>b & self.sensorsDict[self.list620_5[b]] == 0:
+                        print("Change in: ", self.list620_5[b], "from: ", self.sensorsDict[self.list620_5[b]], " to: ", binlist620_5>>b )
+                        self.sensorsDict[self.list620_5[b]] = binlist620_5 >> b
 
 
                 # print("1b: ",list620[1],", 1a: ",hex(int(list620[1],16)-0x10))
