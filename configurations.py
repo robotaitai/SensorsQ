@@ -6,7 +6,7 @@
 IPs = {0: "192.168.10.75",
        1: "192.168.1.17",
        2: "192.168.1.4",
-       3: "192.168.0.100",
+       3: "192.168.0.101",
        }
 
 Shields = {0: "Sensors",
@@ -19,4 +19,4 @@ class Configurations:
         self.shield = Shields[1]
         print(self.shield, " Shield was chosen")
 
-        self.ip = IPs[2]
+        self.ip = IPs[3]
