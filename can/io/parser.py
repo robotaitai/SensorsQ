@@ -30,7 +30,7 @@ class Parser(BaseIOHandler, Listener):
         self.list620_5 = ["None", "None", "BLDoor", "BRDoor", "FRDoor", "FLDoor", "None", "None"]
         self.list620_7 = ["None", "None", "None", "None", "None", "HandBreak", "None", "frontSB"]
 
-        self.sensorsDict = {"BLDoor":"0", "BRDoor":"0", "FRDoor":"0", "FLDoor":"0",  "frontSB":"0", "HandBreak":"0", "None":"0"}
+        self.sensorsDict = {"BLDoor":0, "BRDoor":0, "FRDoor":0, "FLDoor":0,  "frontSB":0, "HandBreak":0, "None":0}
         self.list2C1_7 =0 #Throttle in 7H
         self.list3BB_5 =0 #Breaks in 7H
 
