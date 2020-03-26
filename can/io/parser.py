@@ -133,7 +133,7 @@ class Parser(BaseIOHandler, Listener):
         if arbitration_id_string == "0620":
             print("620! ", data_string)
             list620 = data_string.split()
-            binlist620_5 = int(bin(int(list620[5])), 2)
+            binlist620_5 = int(bin(int(list620[5])-40), 2) #added this -40
             print(bin(binlist620_5))
             for b in range(8):
                 andResult = binlist620_5>>b & 1
