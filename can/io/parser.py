@@ -139,7 +139,7 @@ class Parser(BaseIOHandler, Listener):
                 print("b = ",b," bin is: ",binlist620_5>>b, " and in dict we have: ",self.sensorsDict[self.list620_5[b]]," and method: ",binlist620_5>>b & self.sensorsDict[self.list620_5[b]])
                 if binlist620_5>>b & self.sensorsDict[self.list620_5[b]] == 0:
                     # print("Change in: ", self.list620_5[b], "from: ", self.sensorsDict[self.list620_5[b]], " to: ", binlist620_5>>b )
-                    self.sensorsDict[self.list620_5[b]] = binlist620_5 >> b
+                    self.sensorsDict[self.list620_5[b]] = binlist620_5 >> b & self.sensorsDict[self.list620_5[b]]
 
 
                 # print("1b: ",list620[1],", 1a: ",hex(int(list620[1],16)-0x10))
