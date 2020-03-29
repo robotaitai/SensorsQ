@@ -140,7 +140,7 @@ class Parser(BaseIOHandler, Listener):
 
                 print(bin(binlist620_5))
                 for b in range(8):
-                    andResult = binlist620_5>>b & 1 == 1
+                    andResult = binlist620_5>>b & 1
                     print("b = ",b," bin is: ",binlist620_5>>b, " and in dict we have: ",self.sensorsDict[self.list620_5[b]]," and method: ",andResult)
 
                     if andResult:
