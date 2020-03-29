@@ -72,9 +72,9 @@ class Parser(BaseIOHandler, Listener):
         #Parse ID
 
         if msg.is_extended_id:
-            arbitration_id_string = "{0:08x}".format(msg.arbitration_id)
+            stringID = "{0:08x}".format(msg.arbitration_id)
         else:
-            arbitration_id_string = "{0:04x}".format(msg.arbitration_id)
+            stringID = "{0:04x}".format(msg.arbitration_id)
         # Parse length
 
         length = "{0:2d}".format(msg.dlc)
@@ -94,54 +94,54 @@ class Parser(BaseIOHandler, Listener):
 
 
         #first time appearance
-        if arbitration_id_string not in self.CAN_dic:
+        if stringID not in self.CAN_dic:
             values = [length, data_string, timestamp, 0]
-            self.CAN_dic.update({ arbitration_id_string : values })
-            self.CAN_dic[arbitration_id_string][3] = 0
-            print("adding: ", arbitration_id_string)
+            self.CAN_dic.update({ stringID : values })
+            self.CAN_dic[stringID][3] = 0
+            print("adding: ", stringID)
             #TODO raise fact
 
             for i in self.CAN_dic.keys():
                 print(i," : ", self.CAN_dic[i])
         else:
             # If already appeared before, don't need to update
-            if self.CAN_dic[arbitration_id_string][1] == data_string:
-                pass
-                # print (self.CAN_dic[arbitration_id_string][1], data_string)
+            if self.CAN_dic[stringID][1] == data_string:
+                return
+                # print (self.CAN_dic[stringID][1], data_string)
                 # print("same")
             else:
                 # If the status of a relevant
                 # update time stamp
-                self.CAN_dic[arbitration_id_string][3] = math.fsum([timestamp, -self.CAN_dic[arbitration_id_string][3]])
+                self.CAN_dic[stringID][3] = math.fsum([timestamp, -self.CAN_dic[stringID][3]])
                 # print("- - - - - - - - - - - - - - - - - - - - - - -")
-                # print("diffrences, ",arbitration_id_string)
-                # print("changed from: ", self.CAN_dic[arbitration_id_string][1])
+                # print("diffrences, ",stringID)
+                # print("changed from: ", self.CAN_dic[stringID][1])
                 # print("          to: ", data_string)
                 # print("- - - - - - - - - - - - - - - - - - - - - - -")
-                self.CAN_dic[arbitration_id_string][1] = data_string
-                # print(self.CAN_dic[arbitration_id_string][1], data_string)
+                self.CAN_dic[stringID][1] = data_string
+                # print(self.CAN_dic[stringID][1], data_string)
                 # for i in self.CAN_dic.keys():
                 #   print(i," : ", self.CAN_dic[i])
 
-            # if arbitration_id_string == "0610":
+            # if stringID == "0610":
             #
             #     list620 = data_string.split()
             #     bin3list620 = int(bin(int(list620[3])),2)
             #     for b in range(8):
             #         if bin3list620>>b & list620[b] == 1:
             #             print("i'm here! this is b: ")
-        if arbitration_id_string == "0620":
-            print("620! ", data_string)
-            list620 = data_string.split()
-            binlist620_5 = int(bin(int(list620[5])-40), 2) #added this -40
-            print(bin(binlist620_5))
-            for b in range(8):
-                andResult = binlist620_5>>b & 1 == 1
-                print("b = ",b," bin is: ",binlist620_5>>b, " and in dict we have: ",self.sensorsDict[self.list620_5[b]]," and method: ",andResult)
+            if stringID == "0620":
+                print("620! ", data_string)
+                list620 = data_string.split()
+                binlist620_5 = int(bin(int(list620[5])), 2) #added this -40
+                print(bin(binlist620_5))
+                for b in range(8):
+                    andResult = binlist620_5>>b & 1 == 1
+                    print("b = ",b," bin is: ",binlist620_5>>b, " and in dict we have: ",self.sensorsDict[self.list620_5[b]]," and method: ",andResult)
 
-                if andResult:
-                    # print("Change in: ", self.list620_5[b], "from: ", self.sensorsDict[self.list620_5[b]], " to: ", binlist620_5>>b )
-                    self.sensorsDict[self.list620_5[b]] = andResult
+                    if andResult:
+                        # print("Change in: ", self.list620_5[b], "from: ", self.sensorsDict[self.list620_5[b]], " to: ", binlist620_5>>b )
+                        self.sensorsDict[self.list620_5[b]] = andResult
 
 
                 # print("1b: ",list620[1],", 1a: ",hex(int(list620[1],16)-0x10))
