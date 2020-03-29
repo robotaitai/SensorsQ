@@ -136,7 +136,7 @@ class Parser(BaseIOHandler, Listener):
                 # binlist620_5 = int(bin(int(list620[5])), 2)
                 print(list620)
 
-                binlist620_5 = int(list620[5].encode('utf-8').hex())
+                binlist620_5 = int(list620[5], 16)
 
                 print(bin(binlist620_5))
                 for b in range(8):
