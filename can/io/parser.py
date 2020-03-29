@@ -135,7 +135,10 @@ class Parser(BaseIOHandler, Listener):
             #             print("i'm here! this is b: ")
             if stringID == "0620":
                 bin_list_620_5 = decodeBinMsg(data_string,5)
+                bin_list_620_7 = decodeBinMsg(data_string,7)
+
                 self.filtered_CAN_dict.update(compareLists(self.list620_5, bin_list_620_5, "open", "closed"))
+                self.filtered_CAN_dict.update(compareLists(self.list620_7, bin_list_620_7, "on", "off"))
                 print(self.filtered_CAN_dict)
 
                 # print("620! ", data_string)
