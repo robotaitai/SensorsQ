@@ -134,7 +134,10 @@ class Parser(BaseIOHandler, Listener):
                 print("620! ", data_string)
                 list620 = data_string.split()
                 # binlist620_5 = int(bin(int(list620[5])), 2)
-                binlist620_5 = int(list620[5])
+                print(list620)
+
+                binlist620_5 = int(list620[5].encode('utf-8').hex())
+
                 print(bin(binlist620_5))
                 for b in range(8):
                     andResult = binlist620_5>>b & 1 == 1
