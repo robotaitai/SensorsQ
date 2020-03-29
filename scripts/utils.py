@@ -37,9 +37,11 @@ def compareLists(features_list, bin_list, iftrue, iffalse):
             pass
         elif bin_list[i]:
             d = {features_list[i],iftrue}
+            print(d)
             true_false_dict.update(d)
         else:
             d = {features_list[i], iffalse}
+            print(d)
             true_false_dict.update(d)
 
     return true_false_dict
