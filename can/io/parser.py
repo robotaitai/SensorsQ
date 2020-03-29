@@ -100,11 +100,11 @@ class Parser(BaseIOHandler, Listener):
             values = [length, data_string, timestamp, 0]
             self.CAN_dic.update({ stringID : values })
             self.CAN_dic[stringID][3] = 0
-            print("adding: ", stringID)
-            #TODO raise fact
-
-            for i in self.CAN_dic.keys():
-                print(i," : ", self.CAN_dic[i])
+            # print("adding: ", stringID)
+            # #TODO raise fact
+            #
+            # for i in self.CAN_dic.keys():
+            #     print(i," : ", self.CAN_dic[i])
         else:
             # If already appeared before, don't need to update
             if self.CAN_dic[stringID][1] == data_string:
@@ -134,8 +134,8 @@ class Parser(BaseIOHandler, Listener):
             #             print("i'm here! this is b: ")
             if stringID == "0620":
                 bin_list_620_5 = decodeBinMsg(data_string,5)
-                featuresDict = compareLists(self.list620_5, bin_list_620_5, "open", "false")
-                print(featuresDict)
+                self.CAN_dic.update(compareLists(self.list620_5, bin_list_620_5, "open", "closed"))
+                print(self.CAN_dic)
 
                 # print("620! ", data_string)
                 # list620 = data_string.split()
