@@ -36,8 +36,8 @@ def compareLists(features_list, bin_list, iftrue, iffalse):
         if features_list[i] == "None":
             pass
         elif bin_list[i]:
-            true_false_dict.add(features_list[i],iftrue)
+            true_false_dict.update(features_list[i],iftrue)
         else:
-            true_false_dict.add(features_list[i], iffalse)
+            true_false_dict.update(features_list[i], iffalse)
 
     return true_false_dict
