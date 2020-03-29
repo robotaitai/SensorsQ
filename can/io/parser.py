@@ -28,6 +28,7 @@ class Parser(BaseIOHandler, Listener):
         self.write_to_file = file is not None
         mode = "a" if append else "w"
         self.CAN_dic = {}
+        self.filtered_CAN_dict ={}
         super().__init__(file, mode=mode)
         self.list620_5 = ["None", "None", "BLDoor", "BRDoor", "FRDoor", "FLDoor", "None", "Rear"]
         self.list620_7 = ["None", "None", "None", "None", "None", "HandBreak", "None", "frontSB"]
@@ -134,8 +135,8 @@ class Parser(BaseIOHandler, Listener):
             #             print("i'm here! this is b: ")
             if stringID == "0620":
                 bin_list_620_5 = decodeBinMsg(data_string,5)
-                self.CAN_dic.update(compareLists(self.list620_5, bin_list_620_5, "open", "closed"))
-                print(self.CAN_dic)
+                self.filtered_CAN_dict.update(compareLists(self.list620_5, bin_list_620_5, "open", "closed"))
+                print(self.filtered_CAN_dict)
 
                 # print("620! ", data_string)
                 # list620 = data_string.split()
