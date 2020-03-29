@@ -7,3 +7,37 @@ def check_user_input(exit_program):
         var = input("")
         exit_program = (var == 'q' or var == 'Q')
 
+
+
+
+"""
+This function will help us compare the bits of a certain byte
+IN: data_strin of a certain message and the desired byte location (from 8 b)
+OUT: list of 0s and 1s
+"""
+def decodeBinMsg(data_string, byte_pos, data_len = 8):
+    bin_list = []
+    list_data =  data_string.split()
+    bin_data = int(list_data[byte_pos],16)
+    for b in range(data_len):
+        bin_list.append(bin_data >> b & 1)
+
+    return bin_list
+
+"""
+This func receives the list of features of a specific car area, and a list of bools according to each feature, (i.e Doors)
+and what happen if the bool is tru or false ("open, close")
+
+and gives back a dict with the features and their status.
+"""
+def compareLists(features_list, bin_list, iftrue, iffalse):
+    true_false_dict = {}
+    for i in range(len(features_list)):
+        if features_list[i] == "None":
+            pass
+        elif bin_list[i]:
+            true_false_dict.add(features_list[i],iftrue)
+        else:
+            true_false_dict.add(features_list[i], iffalse)
+
+    return true_false_dict

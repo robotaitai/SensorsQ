@@ -5,7 +5,9 @@ This Listener simply prints to stdout / the terminal or a file.
 import logging
 import math
 from can.listener import Listener
+from scripts.utils import decodeBinMsg, compareLists
 from .generic import BaseIOHandler
+
 
 log = logging.getLogger("can.io.printer")
 
@@ -27,7 +29,7 @@ class Parser(BaseIOHandler, Listener):
         mode = "a" if append else "w"
         self.CAN_dic = {}
         super().__init__(file, mode=mode)
-        self.list620_5 = ["None", "None", "BLDoor", "BRDoor", "FRDoor", "FLDoor", "None", "None"]
+        self.list620_5 = ["None", "None", "BLDoor", "BRDoor", "FRDoor", "FLDoor", "None", "Rear"]
         self.list620_7 = ["None", "None", "None", "None", "None", "HandBreak", "None", "frontSB"]
 
         self.sensorsDict = {"BLDoor":0, "BRDoor":0, "FRDoor":0, "FLDoor":0,  "frontSB":0, "HandBreak":0, "None":0}
@@ -131,21 +133,25 @@ class Parser(BaseIOHandler, Listener):
             #         if bin3list620>>b & list620[b] == 1:
             #             print("i'm here! this is b: ")
             if stringID == "0620":
-                print("620! ", data_string)
-                list620 = data_string.split()
-                # binlist620_5 = int(bin(int(list620[5])), 2)
-                print(list620)
+                bin_list_620_5 = decodeBinMsg(data_string,5)
+                featuresDict = compareLists(self.list620_5, bin_list_620_5, "open", "false")
+                print(featuresDict)
 
-                binlist620_5 = int(list620[5], 16)
-
-                print(bin(binlist620_5))
-                for b in range(8):
-                    andResult = binlist620_5>>b & 1
-                    print("b = ",b," bin is: ",binlist620_5>>b, " and in dict we have: ",self.sensorsDict[self.list620_5[b]]," and method: ",andResult)
-
-                    if andResult:
-                        # print("Change in: ", self.list620_5[b], "from: ", self.sensorsDict[self.list620_5[b]], " to: ", binlist620_5>>b )
-                        self.sensorsDict[self.list620_5[b]] = andResult
+                # print("620! ", data_string)
+                # list620 = data_string.split()
+                # # binlist620_5 = int(bin(int(list620[5])), 2)
+                # print(list620)
+                #
+                # binlist620_5 = int(list620[5], 16)
+                #
+                # print(bin(binlist620_5))
+                # for b in range(8):
+                #     andResult = binlist620_5>>b & 1
+                #     print("b = ",b," bin is: ",binlist620_5>>b, " and in dict we have: ",self.sensorsDict[self.list620_5[b]]," and method: ",andResult)
+                #
+                #     if andResult:
+                #         # print("Change in: ", self.list620_5[b], "from: ", self.sensorsDict[self.list620_5[b]], " to: ", binlist620_5>>b )
+                #         self.sensorsDict[self.list620_5[b]] = andResult
 
 
                 # print("1b: ",list620[1],", 1a: ",hex(int(list620[1],16)-0x10))
@@ -153,11 +159,6 @@ class Parser(BaseIOHandler, Listener):
                 # print("5b: ",list620[5],", 5a: ",hex(int(list620[5],16)-0x10))
                 # print(int(list620[0],2))
                 # print(int(list620[5]))
-
-
-
-
-
 
 
 
