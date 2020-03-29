@@ -133,7 +133,8 @@ class Parser(BaseIOHandler, Listener):
             if stringID == "0620":
                 print("620! ", data_string)
                 list620 = data_string.split()
-                binlist620_5 = int(bin(int(list620[5])), 2) #added this -40
+                # binlist620_5 = int(bin(int(list620[5])), 2)
+                binlist620_5 = int(list620[5])
                 print(bin(binlist620_5))
                 for b in range(8):
                     andResult = binlist620_5>>b & 1 == 1
