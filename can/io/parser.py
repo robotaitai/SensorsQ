@@ -140,8 +140,8 @@ class Parser(BaseIOHandler, Listener):
             #             print("i'm here! this is b: ")
             if stringID == "0620":
                 list_data = data_string.split()
-                print(list_data[2])
-                if(list_data[2]=="80"):
+                print(list_data[1])
+                if(list_data[1]=="80"):
                     print(data_string)
                     self.updateFilteredDict(data_string)
 
