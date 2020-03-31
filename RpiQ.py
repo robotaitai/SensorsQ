@@ -52,7 +52,7 @@ if agent.connected_to_mqtt:
     else:
         if not agent.args.service:
             print("Press q+Enter to stop...")
-            threading.Thread(target=utils.check_user_input(exit_program)).start()
+            threading.Thread(target=utils.UtilityFunctions.check_user_input(exit_program)).start()
 
         while not exit_program:
             sensor.update_seats()
