@@ -13,4 +13,4 @@ from .blf import BLFReader, BLFWriter
 from .canutils import CanutilsLogReader, CanutilsLogWriter
 from .csv import CSVWriter, CSVReader
 from .sqlite import SqliteReader, SqliteWriter
-from .parser import Parser
+from .CANparser import Parser
