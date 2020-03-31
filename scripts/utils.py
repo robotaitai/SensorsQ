@@ -60,6 +60,7 @@ class UtilityFunctions:
     def compareDicts(newDict, oldDict):
         diffDict = {}
         for key in newDict:
+            print("new",newDict[key],"old",oldDict[key])
             # if key not in oldDict:
             #     diffDic.update({key: newDict[key]})
             # if newDict[key] != oldDict[key]:

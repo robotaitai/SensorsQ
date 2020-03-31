@@ -177,13 +177,13 @@ class Parser(BaseIOHandler, Listener):
         bin_list_620_7 = UtilityFunctions.decodeBinMsg(data_string, 7)
         self.filtered_CAN_dict.update(UtilityFunctions.compareLists(self.list620_5, bin_list_620_5, "open", "closed"))
         self.filtered_CAN_dict.update(UtilityFunctions.compareLists(self.list620_7, bin_list_620_7, "on", "off"))
-        print(self.filtered_CAN_dict)
+        # print(self.filtered_CAN_dict)
         self.need_to_be_updated  =  UtilityFunctions.compareDicts(self.filtered_CAN_dict, self.old_filtered_CAN_dict)
-        print(self.need_to_be_updated)
+        # print(self.need_to_be_updated)
         CANShield.CANShield.onChange(self.need_to_be_updated)
-        print(self.old_filtered_CAN_dict)
+        # print(self.old_filtered_CAN_dict)
         self.old_filtered_CAN_dict = self.filtered_CAN_dict
-        print(self.old_filtered_CAN_dict)
+        # print(self.old_filtered_CAN_dict)
 
         ##TODO if succeeded
         self.need_to_be_updated = {}
