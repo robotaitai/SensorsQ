@@ -28,6 +28,7 @@ class Parser(BaseIOHandler, Listener):
         mode = "a" if append else "w"
         self.CAN_dic = {}
         self.filtered_CAN_dict ={}
+        self.old_filtered_CAN_dict = {}
         super().__init__(file, mode=mode)
         self.list620_5 = ["None", "None", "BLDoor", "BRDoor", "FRDoor", "FLDoor", "None", "Rear"]
         self.list620_7 = ["None", "None", "None", "None","HandBreak", "None", "frontSB", "None" ]
@@ -104,7 +105,8 @@ class Parser(BaseIOHandler, Listener):
             address_data = [length, data_string, timestamp, 0]
             self.CAN_dic.update({ stringID : address_data })
             self.CAN_dic[stringID][3] = 0
-            # print("adding: ", stringID)
+            if stringID == "0620":
+                self.updateFilteredDict(self.filtered_CAN_dict, data_string)            # print("adding: ", stringID)
             # #TODO raise fact
             #
             # for i in self.CAN_dic.keys():
@@ -168,16 +170,16 @@ class Parser(BaseIOHandler, Listener):
 
 
 
-    def updateFilteredDict(self, filtered_dic, data_string):
-        old_filtered_CAN_dict = self.filtered_CAN_dict
+    def updateFilteredDict(self, data_string):
         bin_list_620_5 = UtilityFunctions.decodeBinMsg(data_string, 5)
         bin_list_620_7 = UtilityFunctions.decodeBinMsg(data_string, 7)
         self.filtered_CAN_dict.update(UtilityFunctions.compareLists(self.list620_5, bin_list_620_5, "open", "closed"))
         self.filtered_CAN_dict.update(UtilityFunctions.compareLists(self.list620_7, bin_list_620_7, "on", "off"))
         print(self.filtered_CAN_dict)
-        self.need_to_be_updated  =  UtilityFunctions.compareDicts(self.filtered_CAN_dict, old_filtered_CAN_dict)
+        self.need_to_be_updated  =  UtilityFunctions.compareDicts(self.filtered_CAN_dict, self.old_filtered_CAN_dict)
         print(self.need_to_be_updated)
         CANShield.CANShield.onChange(self.need_to_be_updated)
+        self.old_filtered_CAN_dict = self.filtered_CAN_dict
         ##TODO if succeeded
         self.need_to_be_updated = {}
 
