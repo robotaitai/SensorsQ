@@ -34,4 +34,4 @@ class CANShield(SensorsAgent):
             time.sleep(100)
         for key in need_to_update:
             print("update on: ", key," now: " ,need_to_update[key] )
-            SensorsAgent.updateMqttAgent(key, need_to_update[key])
+            SensorsAgent.updateMqttAgent(self.agent, key, need_to_update[key])
