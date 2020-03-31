@@ -137,12 +137,7 @@ class Parser(BaseIOHandler, Listener):
             #         if bin3list620>>b & list620[b] == 1:
             #             print("i'm here! this is b: ")
             if stringID == "0620":
-                bin_list_620_5 = UtilityFunctions.decodeBinMsg(data_string,5)
-                bin_list_620_7 = UtilityFunctions.decodeBinMsg(data_string,7)
-                self.filtered_CAN_dict.update(UtilityFunctions.compareLists(self.list620_5, bin_list_620_5, "open", "closed"))
-                self.filtered_CAN_dict.update(UtilityFunctions.compareLists(self.list620_7, bin_list_620_7, "on", "off"))
-                print("right print",self.filtered_CAN_dict)
-                self.updateFilteredDict(self.filtered_CAN_dict)
+                self.updateFilteredDict(self.filtered_CAN_dict, data_string)
 
                 # print("620! ", data_string)
                 # list620 = data_string.split()
@@ -173,8 +168,13 @@ class Parser(BaseIOHandler, Listener):
 
 
 
-    def updateFilteredDict(self, filtered_dic):
+    def updateFilteredDict(self, filtered_dic, data_string):
         old_filtered_CAN_dict = self.filtered_CAN_dict
+        bin_list_620_5 = UtilityFunctions.decodeBinMsg(data_string, 5)
+        bin_list_620_7 = UtilityFunctions.decodeBinMsg(data_string, 7)
+        self.filtered_CAN_dict.update(UtilityFunctions.compareLists(self.list620_5, bin_list_620_5, "open", "closed"))
+        self.filtered_CAN_dict.update(UtilityFunctions.compareLists(self.list620_7, bin_list_620_7, "on", "off"))
+        print("right print", self.filtered_CAN_dict)
         self.need_to_be_updated  =  UtilityFunctions.compareDicts(filtered_dic, old_filtered_CAN_dict)
         print(self.need_to_be_updated)
         CANShield.CANShield.onChange(self.need_to_be_updated)
