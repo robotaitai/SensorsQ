@@ -19,7 +19,7 @@ class SensorsAgent:
             "FRDoor": self.agent.on_passenger_door_gpio_changed,
             "BLDoor": self.agent.not_configured_yet,
             "BRDoor": self.agent.not_configured_yet,
-            "Cargo": self.not_configured_yet,
+            "Cargo": self.agent.not_configured_yet,
             "ignition": self.agent.on_engine_gpio_changed,
             "FLSB": self.agent.on_driver_seatbelt_gpio_changed,
             "FRSB": self.agent.on_passenger_seatbelt_gpio_changed,
