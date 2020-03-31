@@ -106,7 +106,7 @@ class Parser(BaseIOHandler, Listener):
             self.CAN_dic.update({ stringID : address_data })
             self.CAN_dic[stringID][3] = 0
             if stringID == "0620":
-                self.updateFilteredDict(self.filtered_CAN_dict, data_string)            # print("adding: ", stringID)
+                self.updateFilteredDict (data_string)            # print("adding: ", stringID)
             # #TODO raise fact
             #
             # for i in self.CAN_dic.keys():
