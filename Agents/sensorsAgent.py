@@ -27,7 +27,8 @@ class SensorsAgent:
             "FLseat": self.agent.on_driver_seat_gpio_changed,
             "BRseat": self.agent.not_configured_yet,
             "BLseat": self.agent.not_configured_yet,
-            "BMseat": self.agent.not_configured_yet
+            "BMseat": self.agent.not_configured_yet,
+            "HandBreak": self.agent.not_configured_yet
         }
         call = switcher.get(component, lambda: "invalid argument")
         call(value==0)

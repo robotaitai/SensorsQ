@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b57c4589-8a24-4bf6-8421-725eb6d5a09d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Agents/mqttAgent.py" beforeDir="false" afterPath="$PROJECT_DIR$/Agents/mqttAgent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agents/sensorsAgent.py" beforeDir="false" afterPath="$PROJECT_DIR$/Agents/sensorsAgent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RpiQ.py" beforeDir="false" afterPath="$PROJECT_DIR$/RpiQ.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shields/CANShield.py" beforeDir="false" afterPath="$PROJECT_DIR$/Shields/CANShield.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shields/sensorsShield.py" beforeDir="false" afterPath="$PROJECT_DIR$/Shields/sensorsShield.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/can/io/CANparser.py" beforeDir="false" afterPath="$PROJECT_DIR$/can/io/CANparser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/utils.py" afterDir="false" />
-    </list>
+    <list default="true" id="b57c4589-8a24-4bf6-8421-725eb6d5a09d" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,8 +26,8 @@
       <file leaf-file-name="sensorsShield.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Shields/sensorsShield.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1770">
-              <caret line="118" column="40" selection-start-line="118" selection-start-column="34" selection-end-line="118" selection-end-column="40" />
+            <state relative-caret-position="183">
+              <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="8" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -46,8 +38,8 @@
       <file leaf-file-name="sensorsAgent.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Agents/sensorsAgent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+            <state relative-caret-position="465">
+              <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -55,8 +47,8 @@
       <file leaf-file-name="CANShield.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Shields/CANShield.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
+            <state relative-caret-position="444">
+              <caret line="35" column="41" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
               <folding>
                 <element signature="e#1#11#0" expanded="true" />
               </folding>
@@ -67,7 +59,7 @@
       <file leaf-file-name="CANparser.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/can/io/CANparser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
+            <state relative-caret-position="-1096">
               <caret line="35" column="72" selection-start-line="35" selection-start-column="67" selection-end-line="35" selection-end-column="72" />
               <folding>
                 <element signature="e#73#87#0" expanded="true" />
@@ -156,13 +148,13 @@
         <option value="$PROJECT_DIR$/CANUpdater.py" />
         <option value="$PROJECT_DIR$/configurations.py" />
         <option value="$PROJECT_DIR$/can/io/parser.py" />
-        <option value="$PROJECT_DIR$/Shields/CANShield.py" />
         <option value="$PROJECT_DIR$/RpiQ.py" />
         <option value="$PROJECT_DIR$/scripts/utils.py" />
         <option value="$PROJECT_DIR$/Agents/mqttAgent.py" />
-        <option value="$PROJECT_DIR$/Agents/sensorsAgent.py" />
         <option value="$PROJECT_DIR$/Shields/sensorsShield.py" />
         <option value="$PROJECT_DIR$/can/io/CANparser.py" />
+        <option value="$PROJECT_DIR$/Shields/CANShield.py" />
+        <option value="$PROJECT_DIR$/Agents/sensorsAgent.py" />
       </list>
     </option>
   </component>
@@ -284,7 +276,7 @@
     <frame x="0" y="23" width="1635" height="1027" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18525402" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18525402" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.45268816" />
@@ -292,7 +284,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32903227" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32903227" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.35913977" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.35913977" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -630,8 +622,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Shields/sensorsShield.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1770">
-          <caret line="118" column="40" selection-start-line="118" selection-start-column="34" selection-end-line="118" selection-end-column="40" />
+        <state relative-caret-position="183">
+          <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="8" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
@@ -640,15 +632,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Agents/sensorsAgent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+        <state relative-caret-position="465">
+          <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Shields/CANShield.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
+        <state relative-caret-position="444">
+          <caret line="35" column="41" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
           <folding>
             <element signature="e#1#11#0" expanded="true" />
           </folding>
@@ -657,7 +649,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/can/io/CANparser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
+        <state relative-caret-position="-1096">
           <caret line="35" column="72" selection-start-line="35" selection-start-column="67" selection-end-line="35" selection-end-column="72" />
           <folding>
             <element signature="e#73#87#0" expanded="true" />
