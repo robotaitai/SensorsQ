@@ -182,6 +182,7 @@ class Parser(BaseIOHandler, Listener):
         # print(self.need_to_be_updated)
         CANShield.CANShield.onChange(self.need_to_be_updated)
         # print(self.old_filtered_CAN_dict)
+        self.old_filtered_CAN_dict ={}
         self.old_filtered_CAN_dict = self.filtered_CAN_dict
         # print(self.old_filtered_CAN_dict)
 
