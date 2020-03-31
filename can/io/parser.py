@@ -174,8 +174,8 @@ class Parser(BaseIOHandler, Listener):
         bin_list_620_7 = UtilityFunctions.decodeBinMsg(data_string, 7)
         self.filtered_CAN_dict.update(UtilityFunctions.compareLists(self.list620_5, bin_list_620_5, "open", "closed"))
         self.filtered_CAN_dict.update(UtilityFunctions.compareLists(self.list620_7, bin_list_620_7, "on", "off"))
-        print("right print", self.filtered_CAN_dict)
-        self.need_to_be_updated  =  UtilityFunctions.compareDicts(filtered_dic, old_filtered_CAN_dict)
+        print(self.filtered_CAN_dict)
+        self.need_to_be_updated  =  UtilityFunctions.compareDicts(self.filtered_CAN_dict, old_filtered_CAN_dict)
         print(self.need_to_be_updated)
         CANShield.CANShield.onChange(self.need_to_be_updated)
         ##TODO if succeeded
