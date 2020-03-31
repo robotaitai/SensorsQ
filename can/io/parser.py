@@ -23,7 +23,7 @@ class Parser(BaseIOHandler, Listener):
         :param bool append: if set to `True` messages are appended to
                             the file, else the file is truncated
         """
-        self.publisher = CANShield.CANShield
+        # self.publisher = CANShield.CANShield
         self.write_to_file = file is not None
         mode = "a" if append else "w"
         self.CAN_dic = {}
@@ -177,50 +177,50 @@ class Parser(BaseIOHandler, Listener):
     def updateFilteredDict(self, filtered_dic):
         old_filtered_CAN_dict = self.filtered_CAN_dict
         self.need_to_be_updated  =  UtilityFunctions.compareDicts(filtered_dic, old_filtered_CAN_dict)
-        self.publisher.onChange(self.need_to_be_updated)
+        CANShield.CANShield.onChange(self.need_to_be_updated)
         ##TODO if succeeded
-        self.need_to_be_updated ={}
+        self.need_to_be_updated = {}
 
 
-
-    def __str__(self) -> str:
-        field_strings = ["Timestamp: {0:>15.6f}".format(self.timestamp)]
-        if self.is_extended_id:
-            arbitration_id_string = "ID: {0:08x}".format(self.arbitration_id)
-        else:
-            arbitration_id_string = "ID: {0:04x}".format(self.arbitration_id)
-        field_strings.append(arbitration_id_string.rjust(12, " "))
-
-        flag_string = " ".join(
-            [
-                "X" if self.is_extended_id else "S",
-                "E" if self.is_error_frame else " ",
-                "R" if self.is_remote_frame else " ",
-                "F" if self.is_fd else " ",
-                "BS" if self.bitrate_switch else "  ",
-                "EI" if self.error_state_indicator else "  ",
-            ]
-        )
-
-        field_strings.append(flag_string)
-
-        field_strings.append("DLC: {0:2d}".format(self.dlc))
-        data_strings = []
-        if self.data is not None:
-            for index in range(0, min(self.dlc, len(self.data))):
-                data_strings.append("{0:02x}".format(self.data[index]))
-        if data_strings:  # if not empty
-            field_strings.append(" ".join(data_strings).ljust(24, " "))
-        else:
-            field_strings.append(" " * 24)
-
-        if (self.data is not None) and (self.data.isalnum()):
-            field_strings.append("'{}'".format(self.data.decode("utf-8", "replace")))
-
-        if self.channel is not None:
-            try:
-                field_strings.append("Channel: {}".format(self.channel))
-            except UnicodeEncodeError:
-                pass
-
-        return "    ".join(field_strings).strip()
+    #
+    # def __str__(self) -> str:
+    #     field_strings = ["Timestamp: {0:>15.6f}".format(self.timestamp)]
+    #     if self.is_extended_id:
+    #         arbitration_id_string = "ID: {0:08x}".format(self.arbitration_id)
+    #     else:
+    #         arbitration_id_string = "ID: {0:04x}".format(self.arbitration_id)
+    #     field_strings.append(arbitration_id_string.rjust(12, " "))
+    #
+    #     flag_string = " ".join(
+    #         [
+    #             "X" if self.is_extended_id else "S",
+    #             "E" if self.is_error_frame else " ",
+    #             "R" if self.is_remote_frame else " ",
+    #             "F" if self.is_fd else " ",
+    #             "BS" if self.bitrate_switch else "  ",
+    #             "EI" if self.error_state_indicator else "  ",
+    #         ]
+    #     )
+    #
+    #     field_strings.append(flag_string)
+    #
+    #     field_strings.append("DLC: {0:2d}".format(self.dlc))
+    #     data_strings = []
+    #     if self.data is not None:
+    #         for index in range(0, min(self.dlc, len(self.data))):
+    #             data_strings.append("{0:02x}".format(self.data[index]))
+    #     if data_strings:  # if not empty
+    #         field_strings.append(" ".join(data_strings).ljust(24, " "))
+    #     else:
+    #         field_strings.append(" " * 24)
+    #
+    #     if (self.data is not None) and (self.data.isalnum()):
+    #         field_strings.append("'{}'".format(self.data.decode("utf-8", "replace")))
+    #
+    #     if self.channel is not None:
+    #         try:
+    #             field_strings.append("Channel: {}".format(self.channel))
+    #         except UnicodeEncodeError:
+    #             pass
+    #
+    #     return "    ".join(field_strings).strip()

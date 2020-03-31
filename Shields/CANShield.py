@@ -27,7 +27,7 @@ class CANShield(sensorsAgent.SensorsAgent):
         can.Notifier(bus, [can.Logger("recorded.log"), can.Printer()])
         print("CAN Thread started")
 
-
-    def onChange(self, need_to_update):
+    @staticmethod
+    def onChange(need_to_update):
         for key in need_to_update:
             print("update on: ", key," now: " ,need_to_update[key] )
