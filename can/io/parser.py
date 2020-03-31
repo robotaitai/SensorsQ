@@ -144,7 +144,6 @@ class Parser(BaseIOHandler, Listener):
                 print("right print",self.filtered_CAN_dict)
                 self.updateFilteredDict(self.filtered_CAN_dict)
 
-                print(self.need_to_be_updated)
                 # print("620! ", data_string)
                 # list620 = data_string.split()
                 # # binlist620_5 = int(bin(int(list620[5])), 2)
@@ -177,6 +176,7 @@ class Parser(BaseIOHandler, Listener):
     def updateFilteredDict(self, filtered_dic):
         old_filtered_CAN_dict = self.filtered_CAN_dict
         self.need_to_be_updated  =  UtilityFunctions.compareDicts(filtered_dic, old_filtered_CAN_dict)
+        print(self.need_to_be_updated)
         CANShield.CANShield.onChange(self.need_to_be_updated)
         ##TODO if succeeded
         self.need_to_be_updated = {}
