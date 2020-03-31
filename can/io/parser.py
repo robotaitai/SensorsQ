@@ -141,7 +141,6 @@ class Parser(BaseIOHandler, Listener):
             if stringID == "0620":
                 list_data = data_string.split()
                 if(list_data[1]=="80"): # "80" means that there was a change on this ID
-                    print(data_string)
                     self.updateFilteredDict(data_string)
 
                 # print("620! ", data_string)
