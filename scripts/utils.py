@@ -60,15 +60,13 @@ class UtilityFunctions:
     def compareDicts(newDict, oldDict):
         diffDict = {}
         for key in newDict:
-            if key in oldDict:
-              print("new",newDict[key],"old",oldDict[key])
             # if key not in oldDict:
             #     diffDic.update({key: newDict[key]})
             # if newDict[key] != oldDict[key]:
             #     diffDic.update({key:newDict[key]})
-            if key not in oldDict or newDict[key] != oldDict[key]:
+            if key not in oldDict or newDict[key] != oldDict[key]: #first if is for new commers, second for changes in dicts
                 # print("new", newDict[key], "old", oldDict[key])
-                d = {key: newDict[key]}
+                d = {key:newDict[key]}
                 diffDict.update(d)
 
         return diffDict
