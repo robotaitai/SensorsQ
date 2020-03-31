@@ -139,7 +139,7 @@ class Parser(BaseIOHandler, Listener):
             #         if bin3list620>>b & list620[b] == 1:
             #             print("i'm here! this is b: ")
             if stringID == "0620":
-                self.updateFilteredDict(self.filtered_CAN_dict, data_string)
+                self.updateFilteredDict(data_string)
 
                 # print("620! ", data_string)
                 # list620 = data_string.split()
