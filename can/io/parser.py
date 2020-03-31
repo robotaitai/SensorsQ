@@ -142,6 +142,8 @@ class Parser(BaseIOHandler, Listener):
                 self.filtered_CAN_dict.update(UtilityFunctions.compareLists(self.list620_5, bin_list_620_5, "open", "closed"))
                 self.filtered_CAN_dict.update(UtilityFunctions.compareLists(self.list620_7, bin_list_620_7, "on", "off"))
                 print("right print",self.filtered_CAN_dict)
+                self.updateFilteredDict(self.filtered_CAN_dict)
+
                 print(self.need_to_be_updated)
                 # print("620! ", data_string)
                 # list620 = data_string.split()
