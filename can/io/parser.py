@@ -5,10 +5,9 @@ This Listener simply prints to stdout / the terminal or a file.
 import logging
 import math
 from can.listener import Listener
-from scripts.utils import decodeBinMsg, compareLists
+from scripts.utils import UtilityFunctions
 from .generic import BaseIOHandler
-
-
+from Shields import CANShield
 log = logging.getLogger("can.io.printer")
 
 
@@ -24,7 +23,7 @@ class Parser(BaseIOHandler, Listener):
         :param bool append: if set to `True` messages are appended to
                             the file, else the file is truncated
         """
-
+        self.publisher = CANShield.CANShield
         self.write_to_file = file is not None
         mode = "a" if append else "w"
         self.CAN_dic = {}
@@ -36,6 +35,7 @@ class Parser(BaseIOHandler, Listener):
         self.sensorsDict = {"BLDoor":0, "BRDoor":0, "FRDoor":0, "FLDoor":0,  "frontSB":0, "HandBreak":0, "None":0}
         self.list2C1_7 =0 #Throttle in 7H
         self.list3BB_5 =0 #Breaks in 7H
+        self.need_to_be_updated = {}
 
 
 
@@ -64,6 +64,9 @@ class Parser(BaseIOHandler, Listener):
 
         # if (msg.data is not None) and (msg.data.isalnum()):
         #     field_strings.append("'{}'".format(self.data.decode("utf-8", "replace")))
+
+
+
 
     def on_message_received(self, msg):
         # if self.write_to_file:
@@ -98,8 +101,8 @@ class Parser(BaseIOHandler, Listener):
 
         #first time appearance
         if stringID not in self.CAN_dic:
-            values = [length, data_string, timestamp, 0]
-            self.CAN_dic.update({ stringID : values })
+            address_data = [length, data_string, timestamp, 0]
+            self.CAN_dic.update({ stringID : address_data })
             self.CAN_dic[stringID][3] = 0
             # print("adding: ", stringID)
             # #TODO raise fact
@@ -134,11 +137,10 @@ class Parser(BaseIOHandler, Listener):
             #         if bin3list620>>b & list620[b] == 1:
             #             print("i'm here! this is b: ")
             if stringID == "0620":
-                bin_list_620_5 = decodeBinMsg(data_string,5)
-                bin_list_620_7 = decodeBinMsg(data_string,7)
-                print(bin_list_620_7)
-                self.filtered_CAN_dict.update(compareLists(self.list620_5, bin_list_620_5, "open", "closed"))
-                self.filtered_CAN_dict.update(compareLists(self.list620_7, bin_list_620_7, "on", "off"))
+                bin_list_620_5 = UtilityFunctions.decodeBinMsg(data_string,5)
+                bin_list_620_7 = UtilityFunctions.decodeBinMsg(data_string,7)
+                self.filtered_CAN_dict.update(UtilityFunctions.compareLists(self.list620_5, bin_list_620_5, "open", "closed"))
+                self.filtered_CAN_dict.update(UtilityFunctions.compareLists(self.list620_7, bin_list_620_7, "on", "off"))
                 print(self.filtered_CAN_dict)
 
                 # print("620! ", data_string)
@@ -170,7 +172,12 @@ class Parser(BaseIOHandler, Listener):
 
 
 
-
+    def updateFilteredDict(self, filtered_dic):
+        old_filtered_CAN_dict = self.filtered_CAN_dict
+        self.need_to_be_updated  =  UtilityFunctions.compareDicts(filtered_dic, old_filtered_CAN_dict)
+        self.publisher.onChange(self.need_to_be_updated)
+        ##TODO if succeeded
+        self.need_to_be_updated ={}
 
 
 
