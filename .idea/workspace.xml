@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b57c4589-8a24-4bf6-8421-725eb6d5a09d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/can/io/parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/can/io/parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agents/mqttAgent.py" beforeDir="false" afterPath="$PROJECT_DIR$/Agents/mqttAgent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agents/sensorsAgent.py" beforeDir="false" afterPath="$PROJECT_DIR$/Agents/sensorsAgent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RpiQ.py" beforeDir="false" afterPath="$PROJECT_DIR$/RpiQ.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shields/CANShield.py" beforeDir="false" afterPath="$PROJECT_DIR$/Shields/CANShield.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shields/sensorsShield.py" beforeDir="false" afterPath="$PROJECT_DIR$/Shields/sensorsShield.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/can/io/CANparser.py" beforeDir="false" afterPath="$PROJECT_DIR$/can/io/CANparser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +22,8 @@
       <file leaf-file-name="RpiQ.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RpiQ.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+            <state relative-caret-position="534">
+              <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
               <folding>
                 <element signature="e#2#12#0" expanded="true" />
               </folding>
@@ -29,8 +34,8 @@
       <file leaf-file-name="sensorsShield.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Shields/sensorsShield.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="40" column="12" lean-forward="true" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
+            <state relative-caret-position="1770">
+              <caret line="118" column="40" selection-start-line="118" selection-start-column="34" selection-end-line="118" selection-end-column="40" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -38,11 +43,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="sensorsAgent.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Agents/sensorsAgent.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="CANShield.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Shields/CANShield.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+            <state>
+              <caret lean-forward="true" />
               <folding>
                 <element signature="e#1#11#0" expanded="true" />
               </folding>
@@ -50,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parser.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/can/io/parser.py">
+      <file leaf-file-name="CANparser.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/can/io/CANparser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="180" column="20" lean-forward="true" selection-start-line="180" selection-start-column="20" selection-end-line="180" selection-end-column="20" />
+            <state relative-caret-position="127">
+              <caret line="35" column="72" selection-start-line="35" selection-start-column="67" selection-end-line="35" selection-end-column="72" />
               <folding>
                 <element signature="e#73#87#0" expanded="true" />
               </folding>
@@ -71,15 +85,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6">
-              <caret line="40" column="43" lean-forward="true" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="can_logger.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/can_logger.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -92,8 +97,8 @@
       <file leaf-file-name="mqttAgent.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Agents/mqttAgent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+            <state relative-caret-position="174">
+              <caret line="97" column="26" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="26" />
               <folding>
                 <element signature="e#1#12#0" expanded="true" />
               </folding>
@@ -101,11 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sensorsAgent.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Agents/sensorsAgent.py">
+      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+            <state relative-caret-position="950">
+              <caret line="38" column="44" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -132,6 +137,8 @@
       <find>thr</find>
       <find>check_user_input</find>
       <find>print</find>
+      <find>connected_to_mqtt</find>
+      <find>RearC</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,20 +151,22 @@
         <option value="$PROJECT_DIR$/mqttAgent.py" />
         <option value="$PROJECT_DIR$/sensorsAgent.py" />
         <option value="$PROJECT_DIR$/sensorsShield.py" />
-        <option value="$PROJECT_DIR$/Shields/sensorsShield.py" />
         <option value="$PROJECT_DIR$/can/io/__init__.py" />
         <option value="$PROJECT_DIR$/can/__init__.py" />
         <option value="$PROJECT_DIR$/CANUpdater.py" />
-        <option value="$PROJECT_DIR$/Agents/mqttAgent.py" />
         <option value="$PROJECT_DIR$/configurations.py" />
-        <option value="$PROJECT_DIR$/RpiQ.py" />
-        <option value="$PROJECT_DIR$/Shields/CANShield.py" />
-        <option value="$PROJECT_DIR$/scripts/utils.py" />
         <option value="$PROJECT_DIR$/can/io/parser.py" />
+        <option value="$PROJECT_DIR$/Shields/CANShield.py" />
+        <option value="$PROJECT_DIR$/RpiQ.py" />
+        <option value="$PROJECT_DIR$/scripts/utils.py" />
+        <option value="$PROJECT_DIR$/Agents/mqttAgent.py" />
+        <option value="$PROJECT_DIR$/Agents/sensorsAgent.py" />
+        <option value="$PROJECT_DIR$/Shields/sensorsShield.py" />
+        <option value="$PROJECT_DIR$/can/io/CANparser.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1635" />
     <option name="height" value="1027" />
@@ -184,6 +193,12 @@
               <item name="SensorsQ" type="b2602c69:ProjectViewProjectNode" />
               <item name="SensorsQ" type="462c0819:PsiDirectoryNode" />
               <item name="can" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SensorsQ" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SensorsQ" type="462c0819:PsiDirectoryNode" />
+              <item name="can" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SensorsQ" type="b2602c69:ProjectViewProjectNode" />
@@ -266,9 +281,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1635" height="1027" extended-state="6" />
+    <frame x="0" y="23" width="1635" height="1027" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18525402" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18525402" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.45268816" />
@@ -276,7 +292,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32903227" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32903227" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.35913977" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.35913977" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -339,10 +355,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/can/io/parser.py">
+    <entry file="file://$PROJECT_DIR$/can/io/CANparser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1560">
           <caret line="104" column="45" selection-start-line="104" selection-start-column="45" selection-end-line="104" selection-end-column="45" />
@@ -558,30 +577,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Shields/sensorsShield.py">
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2018.1/python_stubs/1464281810/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="40" column="12" lean-forward="true" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RpiQ.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
-          <folding>
-            <element signature="e#2#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CANUpdater.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="10" lean-forward="true" selection-start-column="10" selection-end-column="10" />
+        <state relative-caret-position="311">
+          <caret line="811" column="8" selection-start-line="811" selection-start-column="8" selection-end-line="811" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -592,51 +591,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CANUpdater.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RpiQ.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+          <folding>
+            <element signature="e#2#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Agents/mqttAgent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        <state relative-caret-position="174">
+          <caret line="97" column="26" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="26" />
           <folding>
             <element signature="e#1#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Agents/sensorsAgent.py">
+    <entry file="file://$PROJECT_DIR$/scripts/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+        <state relative-caret-position="950">
+          <caret line="38" column="44" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2018.1/python_stubs/1464281810/builtins.py">
+    <entry file="file://$PROJECT_DIR$/Shields/sensorsShield.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="811" column="8" selection-start-line="811" selection-start-column="8" selection-end-line="811" selection-end-column="8" />
+        <state relative-caret-position="1770">
+          <caret line="118" column="40" selection-start-line="118" selection-start-column="34" selection-end-line="118" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Agents/sensorsAgent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Shields/CANShield.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+        <state>
+          <caret lean-forward="true" />
           <folding>
             <element signature="e#1#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/utils.py">
+    <entry file="file://$PROJECT_DIR$/can/io/CANparser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6">
-          <caret line="40" column="43" lean-forward="true" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/can/io/parser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="180" column="20" lean-forward="true" selection-start-line="180" selection-start-column="20" selection-end-line="180" selection-end-column="20" />
+        <state relative-caret-position="127">
+          <caret line="35" column="72" selection-start-line="35" selection-start-column="67" selection-end-line="35" selection-end-column="72" />
           <folding>
             <element signature="e#73#87#0" expanded="true" />
           </folding>

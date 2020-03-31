@@ -8,13 +8,14 @@ from can.listener import Listener
 from scripts.utils import UtilityFunctions
 from .generic import BaseIOHandler
 from Shields import CANShield
+
 log = logging.getLogger("can.io.printer")
 
 
 class Parser(BaseIOHandler, Listener):
 
 
-    def __init__(self, file=None, append=False):
+    def __init__(self, CANShield, file=None, append=False):
         """
         :param file: an optional path-like object or as file-like object to "print"
                      to instead of writing to standard out (stdout)
@@ -26,17 +27,21 @@ class Parser(BaseIOHandler, Listener):
         # self.publisher = CANShield.CANShield
         self.write_to_file = file is not None
         mode = "a" if append else "w"
-        self.CAN_dic = {}
+
+        self.CAN_dictionary = {}
         self.filtered_CAN_dict ={}
         self.old_filtered_CAN_dict = {}
+
         super().__init__(file, mode=mode)
-        self.list620_5 = ["None", "None", "BLDoor", "BRDoor", "FRDoor", "FLDoor", "None", "Rear"]
+        self.list620_4 = ["None", "None", "None", "None", "None", "KeyOn", "None", "None"]
+        self.list620_5 = ["None", "None", "BLDoor", "BRDoor", "FRDoor", "FLDoor", "None", "Cargo"]
         self.list620_7 = ["None", "None", "None", "None","HandBreak", "None", "frontSB", "None" ]
 
         self.sensorsDict = {"BLDoor":0, "BRDoor":0, "FRDoor":0, "FLDoor":0,  "frontSB":0, "HandBreak":0, "None":0}
         self.list2C1_7 =0 #Throttle in 7H
         self.list3BB_5 =0 #Breaks in 7H
         self.need_to_be_updated = {}
+        self.CANShield = CANShield
 
 
 
@@ -101,32 +106,33 @@ class Parser(BaseIOHandler, Listener):
 
 
         #first time appearance
-        if stringID not in self.CAN_dic:
+        if stringID not in self.CAN_dictionary:                                                       #if it a message from a new ID
             address_data = [length, data_string, timestamp, 0]
-            self.CAN_dic.update({ stringID : address_data })
-            self.CAN_dic[stringID][3] = 0
+            self.CAN_dictionary.update({stringID : address_data})
+            self.CAN_dictionary[stringID][3] = 0
+
             if stringID == "0620":
                 self.updateFilteredDict (data_string)            # print("adding: ", stringID)
             # #TODO raise fact
             #
             # for i in self.CAN_dic.keys():
             #     print(i," : ", self.CAN_dic[i])
-        else:
+        else:                                                                                  #if it a message from a known ID
             # If already appeared before, don't need to update
-            if self.CAN_dic[stringID][1] == data_string:
+            if self.CAN_dictionary[stringID][1] == data_string:
                 return
                 # print (self.CAN_dic[stringID][1], data_string)
                 # print("same")
-            else:
+            else:                                                                              #if it change in a message from a known ID
                 # If the status of a relevant
                 # update time stamp
-                self.CAN_dic[stringID][3] = math.fsum([timestamp, -self.CAN_dic[stringID][3]])
+                self.CAN_dictionary[stringID][3] = math.fsum([timestamp, -self.CAN_dictionary[stringID][3]])
                 # print("- - - - - - - - - - - - - - - - - - - - - - -")
                 # print("diffrences, ",stringID)
                 # print("changed from: ", self.CAN_dic[stringID][1])
                 # print("          to: ", data_string)
                 # print("- - - - - - - - - - - - - - - - - - - - - - -")
-                self.CAN_dic[stringID][1] = data_string
+                self.CAN_dictionary[stringID][1] = data_string
                 # print(self.CAN_dic[stringID][1], data_string)
                 # for i in self.CAN_dic.keys():
                 #   print(i," : ", self.CAN_dic[i])
@@ -173,61 +179,14 @@ class Parser(BaseIOHandler, Listener):
 
 
     def updateFilteredDict(self, data_string):
+
         bin_list_620_5 = UtilityFunctions.decodeBinMsg(data_string, 5)
         bin_list_620_7 = UtilityFunctions.decodeBinMsg(data_string, 7)
-        self.filtered_CAN_dict.update(UtilityFunctions.compareLists(self.list620_5, bin_list_620_5, "open", "closed"))
-        self.filtered_CAN_dict.update(UtilityFunctions.compareLists(self.list620_7, bin_list_620_7, "on", "off"))
-        # print(self.filtered_CAN_dict)
-        self.need_to_be_updated  =  UtilityFunctions.compareDicts(self.filtered_CAN_dict, self.old_filtered_CAN_dict)
-        # print(self.need_to_be_updated)
-        CANShield.CANShield.onChange(self.need_to_be_updated)
-        # print(self.old_filtered_CAN_dict)
+        self.filtered_CAN_dict.update(UtilityFunctions.compareLists(self.list620_5, bin_list_620_5))
+        self.filtered_CAN_dict.update(UtilityFunctions.compareLists(self.list620_7, bin_list_620_7))
+        self.need_to_be_updated = UtilityFunctions.compareDicts(self.filtered_CAN_dict, self.old_filtered_CAN_dict)
+        self.CANShield.onChange(self.need_to_be_updated)
         self.old_filtered_CAN_dict.update(self.filtered_CAN_dict) #update the "old" dict   for further comparisions
-        # print(self.old_filtered_CAN_dict)
 
         ##TODO if succeeded
         self.need_to_be_updated = {}
-
-
-    #
-    # def __str__(self) -> str:
-    #     field_strings = ["Timestamp: {0:>15.6f}".format(self.timestamp)]
-    #     if self.is_extended_id:
-    #         arbitration_id_string = "ID: {0:08x}".format(self.arbitration_id)
-    #     else:
-    #         arbitration_id_string = "ID: {0:04x}".format(self.arbitration_id)
-    #     field_strings.append(arbitration_id_string.rjust(12, " "))
-    #
-    #     flag_string = " ".join(
-    #         [
-    #             "X" if self.is_extended_id else "S",
-    #             "E" if self.is_error_frame else " ",
-    #             "R" if self.is_remote_frame else " ",
-    #             "F" if self.is_fd else " ",
-    #             "BS" if self.bitrate_switch else "  ",
-    #             "EI" if self.error_state_indicator else "  ",
-    #         ]
-    #     )
-    #
-    #     field_strings.append(flag_string)
-    #
-    #     field_strings.append("DLC: {0:2d}".format(self.dlc))
-    #     data_strings = []
-    #     if self.data is not None:
-    #         for index in range(0, min(self.dlc, len(self.data))):
-    #             data_strings.append("{0:02x}".format(self.data[index]))
-    #     if data_strings:  # if not empty
-    #         field_strings.append(" ".join(data_strings).ljust(24, " "))
-    #     else:
-    #         field_strings.append(" " * 24)
-    #
-    #     if (self.data is not None) and (self.data.isalnum()):
-    #         field_strings.append("'{}'".format(self.data.decode("utf-8", "replace")))
-    #
-    #     if self.channel is not None:
-    #         try:
-    #             field_strings.append("Channel: {}".format(self.channel))
-    #         except UnicodeEncodeError:
-    #             pass
-    #
-    #     return "    ".join(field_strings).strip()

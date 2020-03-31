@@ -1,5 +1,3 @@
-
-
 import sys
 import time
 import threading
@@ -9,18 +7,12 @@ import argparse
 from scripts import utils
 import configurations
 
-
-
-
-
-
-
 ## MAIN CODE
 exit_program = False
 conf = configurations.Configurations()
 
 parser = argparse.ArgumentParser(description='RPi HW Sensors Controller')
-parser.add_argument('--mqtt', default= conf.ip, type=str, help='MQTT broker IP address')
+parser.add_argument('--mqtt', default=conf.ip, type=str, help='MQTT broker IP address')
 parser.add_argument('--service', help='run in service mode (no used input)', action='store_true')
 args = parser.parse_args()
 
@@ -34,8 +26,6 @@ if conf.shield == "Sensors":
 elif conf.shield == "CAN":
     sensor = CANShield.CANShield(agent)
 
-
-
 while agent.connected_to_mqtt is None:
     pass
 
@@ -47,7 +37,7 @@ if agent.connected_to_mqtt:
 
         while True:
             sensor.update_seats()
-          #  last_touched = sensor.update_steering_touch(last_touched) #TODO
+            # last_touched = sensor.update_steering_touch(last_touched) #TODO
             time.sleep(0.1)
     else:
         if not agent.args.service:
@@ -56,32 +46,8 @@ if agent.connected_to_mqtt:
 
         while not exit_program:
             sensor.update_seats()
-         #   last_touched = sensor.SensorsShield.update_steering_touch(last_touched)
+            #   last_touched = sensor.SensorsShield.update_steering_touch(last_touched)
             time.sleep(0.1)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             # def update_steering_touch(last_touched):
 #     #    global last_touched

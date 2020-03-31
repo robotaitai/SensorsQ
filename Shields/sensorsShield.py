@@ -77,11 +77,11 @@ class SensorsShield(sensorsAgent.SensorsAgent):
     def handle(self, pin):
 
         components = {
-                self.leftDoorPBN: "leftDoor",
-                self.rightDoorPBN: "rightDoor",
+                self.leftDoorPBN: "FLDoor",
+                self.rightDoorPBN: "FRDoor",
                 self.ignitionPBN: "ignition",
-                self.leftSBPBN: "leftSB",
-                self.rightSBPBN: "rightSB"
+                self.leftSBPBN: "FLSB",
+                self.rightSBPBN: "FRSB"
             }
 
         pin_name = components.get(pin, "none")

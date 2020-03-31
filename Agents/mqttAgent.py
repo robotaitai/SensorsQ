@@ -95,6 +95,9 @@ class MqttAgent:
     ## GPIO-MQTT hooks
     ##################################################################################################
 
+    def not_configured_yet(self, is_open):
+        pass
+
 
     def on_engine_gpio_changed(self, is_off):
         self.publish(
