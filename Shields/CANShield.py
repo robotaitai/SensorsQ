@@ -15,6 +15,7 @@ class CANShield(SensorsAgent):
         notifier =can.Notifier(bus, [can.Logger("recorded.log"), can.Parser(self)])
         print("CAN Thread started")
         self.agent = mqttAgent
+        self.opposites =["BLDoor","BRDoor","FLDoor","FRDoor"]
 
     def sync_gpio(self):
         pass
@@ -36,5 +37,8 @@ class CANShield(SensorsAgent):
         while not self.agent.connected_to_mqtt:
             time.sleep(100)
         for key in need_to_update:
-            print("update on: ", key," now: " ,need_to_update[key] )
-            SensorsAgent.updateMqttAgent(self, key, need_to_update[key])
+            value = need_to_update[key]
+            if key in self.opposites:
+                value = not value
+            print("update on: ", key," now: " ,value )
+            SensorsAgent.updateMqttAgent(self, key, value)
