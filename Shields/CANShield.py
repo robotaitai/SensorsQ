@@ -19,6 +19,8 @@ class CANShield(SensorsAgent):
     def sync_gpio(self):
         pass
 
+    def update_seats(self):
+        pass
     # threading.Thread(target=CANShield.update_can()).start()
 
 
