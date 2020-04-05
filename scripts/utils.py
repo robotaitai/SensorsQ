@@ -38,17 +38,28 @@ class UtilityFunctions:
     @staticmethod
     def compareLists(features_list, bin_list, same = True):
         true_false_dict = {}
-        for i in range(len(features_list)):
-            if features_list[i] == "None":
-                pass
-            elif bin_list[i]:
-                d = {features_list[i]:1 & same}
-                true_false_dict.update(d)
-            else:
-                d = {features_list[i]: 0 & same}
-                true_false_dict.update(d)
+        if same:
+            for i in range(len(features_list)):
+                if features_list[i] == "None":
+                    pass
+                elif bin_list[i]:
+                    d = {features_list[i]:1}
+                    true_false_dict.update(d)
+                else:
+                    d = {features_list[i]: 0}
+                    true_false_dict.update(d)
 
-        return true_false_dict
+            return true_false_dict
+        else:
+            for i in range(len(features_list)):
+                if features_list[i] == "None":
+                    pass
+                elif bin_list[i]:
+                    d = {features_list[i]: 0}
+                    true_false_dict.update(d)
+                else:
+                    d = {features_list[i]: 1}
+                    true_false_dict.update(d)
 
 
     """
