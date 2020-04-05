@@ -5,12 +5,12 @@ class UtilityFunctions:
 
     @staticmethod
     def check_user_input(exit_program):
-
+        pass
 
         var = ""
-        while not exit_program:
-            var = input("")
-            exit_program = (var == 'q' or var == 'Q')
+        # while not exit_program:
+        #     var = input("")
+        #     exit_program = (var == 'q' or var == 'Q')
 
     """
     This function will help us compare the bits of a certain byte
