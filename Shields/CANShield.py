@@ -27,7 +27,8 @@ class CANShield(SensorsAgent):
     @staticmethod
     def update_can():
         bus = can.Bus(interface='socketcan', channel='can0', receive_own_messages=True)
-        can.Notifier(bus, [can.Logger("recorded.log"), can.Printer()])
+        # can.Notifier(bus, [can.Logger("recorded.log"), can.Printer()])
+        can.Notifier(bus)
         print("CAN Thread started")
 
     # @staticmethod
