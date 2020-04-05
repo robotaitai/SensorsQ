@@ -21,4 +21,4 @@ class Configurations:
         self.shield = Shields[1]
         print(self.shield, " Shield was chosen")
 
-        self.ip = IPs[5]
+        self.ip = IPs[2]
