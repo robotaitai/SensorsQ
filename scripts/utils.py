@@ -36,7 +36,7 @@ class UtilityFunctions:
     and gives back a dict with the features and their status.
     """
     @staticmethod
-    def compareLists(features_list, bin_list, same = True):
+    def compareLists(features_list, bin_list, same):
         true_false_dict = {}
         if same:
             for i in range(len(features_list)):

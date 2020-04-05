@@ -183,7 +183,7 @@ class Parser(BaseIOHandler, Listener):
         bin_list_620_5 = UtilityFunctions.decodeBinMsg(data_string, 5)
         bin_list_620_7 = UtilityFunctions.decodeBinMsg(data_string, 7)
         self.filtered_CAN_dict.update(UtilityFunctions.compareLists(self.list620_5, bin_list_620_5, False))
-        self.filtered_CAN_dict.update(UtilityFunctions.compareLists(self.list620_7, bin_list_620_7))
+        self.filtered_CAN_dict.update(UtilityFunctions.compareLists(self.list620_7, bin_list_620_7, True))
         self.need_to_be_updated = UtilityFunctions.compareDicts(self.filtered_CAN_dict, self.old_filtered_CAN_dict)
         self.CANShield.onChange(self.need_to_be_updated)
         self.old_filtered_CAN_dict.update(self.filtered_CAN_dict) #update the "old" dict   for further comparisions
