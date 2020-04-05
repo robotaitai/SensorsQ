@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b57c4589-8a24-4bf6-8421-725eb6d5a09d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/can/io/CANparser.py" beforeDir="false" afterPath="$PROJECT_DIR$/can/io/CANparser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/utils.py" afterDir="false" />
     </list>
@@ -65,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CANparser.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CANparser.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/can/io/CANparser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="184" column="105" selection-start-line="184" selection-start-column="105" selection-end-line="184" selection-end-column="105" />
+            <state relative-caret-position="367">
+              <caret line="184" column="62" lean-forward="true" selection-start-line="184" selection-start-column="62" selection-end-line="184" selection-end-column="62" />
               <folding>
                 <element signature="e#73#87#0" expanded="true" />
               </folding>
@@ -104,11 +105,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="utils.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="47" column="47" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
+            <state relative-caret-position="522">
+              <caret line="60" column="44" selection-start-line="60" selection-start-column="44" selection-end-line="60" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -159,8 +160,8 @@
         <option value="$PROJECT_DIR$/configurations.py" />
         <option value="$PROJECT_DIR$/RpiQ.py" />
         <option value="$PROJECT_DIR$/Shields/CANShield.py" />
-        <option value="$PROJECT_DIR$/scripts/utils.py" />
         <option value="$PROJECT_DIR$/can/io/CANparser.py" />
+        <option value="$PROJECT_DIR$/scripts/utils.py" />
       </list>
     </option>
   </component>
@@ -648,13 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="47" column="47" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Shields/sensorsShield.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
@@ -677,11 +671,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/can/io/CANparser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="184" column="105" selection-start-line="184" selection-start-column="105" selection-end-line="184" selection-end-column="105" />
+        <state relative-caret-position="367">
+          <caret line="184" column="62" lean-forward="true" selection-start-line="184" selection-start-column="62" selection-end-line="184" selection-end-column="62" />
           <folding>
             <element signature="e#73#87#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="60" column="44" selection-start-line="60" selection-start-column="44" selection-end-line="60" selection-end-column="44" />
         </state>
       </provider>
     </entry>
